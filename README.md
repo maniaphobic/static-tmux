@@ -25,3 +25,13 @@ I tested this on CentOS 5 and 6.
     git checkout 1.8
     make
 
+## Caveats
+
+  - These instructions assume gcc and g++ are installed in your build
+    environment.
+  - Compiling ncurses currently fails with this error:
+
+> config.status: error: cannot find input file: NCURSES_MAJOR
+> make[1]: *** [/home/kenneth.maupin/tmp/static-tmux/build/ncurses-5.9/Makefile] Error 1
+> make[1]: Leaving directory `/home/kenneth.maupin/tmp/static-tmux'
+> make: *** [ncurses] Error 2
