@@ -20,8 +20,8 @@ I tested this on CentOS 5 and 6.
 
 ## Build instructions
 
-git clone https://github.com/maniaphobic/static-tmux/
-cd static-tmux
-git checkout 1.8
-make
+  git clone https://github.com/maniaphobic/static-tmux/
+  cd static-tmux
+  git checkout 1.8
+  make
 
