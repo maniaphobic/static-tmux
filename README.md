@@ -5,10 +5,9 @@
 This repo contains everything one needs to compile tmux as a
 self-contained static binary, namely:
 
-  - Source code:
-    - tmux 1.8 and its dependencies:
-	- libevent 2.0.21
-	- ncurses 5.9
+  - Source code for tmux 1.9a and its dependencies:
+    - libevent 2.0.21
+    - ncurses 5.9
   - Makefiles
 
 This renders it suitable for deployment to environments lacking
@@ -28,7 +27,7 @@ For CentOS:
 
     git clone https://github.com/maniaphobic/static-tmux/
     cd static-tmux
-    git checkout 1.8
+    git checkout 1.9a
     make
 
 ## Caveats
