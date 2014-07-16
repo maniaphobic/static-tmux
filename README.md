@@ -6,9 +6,9 @@ This repo contains everything one needs to compile tmux as a
 self-contained static binary, namely:
 
   - Source code:
+    - tmux 1.8 and its dependencies:
 	- libevent 2.0.21
 	- ncurses 5.9
-    - tmux 1.8
   - Makefiles
 
 This renders it suitable for deployment to environments lacking
@@ -17,6 +17,12 @@ compilers and/or Internet access.
 ## Supported platforms
 
 I tested this on CentOS 5 and 6.
+
+## Prerequisites
+
+For CentOS:
+
+  - The "gcc" and "gcc-c++" packages
 
 ## Build instructions
 
@@ -27,9 +33,7 @@ I tested this on CentOS 5 and 6.
 
 ## Caveats
 
-  - These instructions assume gcc and g++ are installed in your build
-    environment.
-  - Compiling ncurses currently fails with this error:
+  - On CentOS 5.9, compiling ncurses currently fails with this error:
 
 > config.status: error: cannot find input file: NCURSES_MAJOR
 > make[1]: *** [/home/kenneth.maupin/tmp/static-tmux/build/ncurses-5.9/Makefile] Error 1
