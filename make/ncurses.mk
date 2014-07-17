@@ -25,7 +25,13 @@ $(EXTRACT_ARTIFACT): $(TARGET_TARBALL_PATH)
 	tar zxf $< -C $(BUILD_PATH)
 
 $(CONFIGURE_ARTIFACT): $(EXTRACT_ARTIFACT)
-	cd $(TARGET_BUILD_PATH); ./configure --prefix=$(INSTALL_PATH) --enable-static --with-termlib
+	cd $(TARGET_BUILD_PATH) ; \
+	patch < $(TOP_PATH)/patches/ncurses/5.9/00_replace_fgrep.diff ; \
+	./configure \
+	  --enable-static \
+	  --prefix=$(INSTALL_PATH) \
+	  --with-termlib \
+	  ;
 
 $(BUILD_ARTIFACT): $(CONFIGURE_ARTIFACT)
 	cd $(TARGET_BUILD_PATH); make
