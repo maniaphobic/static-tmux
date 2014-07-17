@@ -1,5 +1,34 @@
+--- ORIGINAL,aclocal.m4	2011-03-31 16:35:38.000000000 -0700
++++ aclocal.m4	2014-07-16 19:16:18.000000000 -0700
+@@ -3174,7 +3174,7 @@
+ case \$DST in
+ /*/include/*)
+ 	END=\`basename \$DST\`
+-	for i in \`cat \$REF/../*/headers |fgrep -v "#"\`
++	for i in \`cat \$REF/../*/headers |grep -v "#"\`
+ 	do
+ 		NAME=\`basename \$i\`
+ 		echo "s/<\$NAME>/<\$END\/\$NAME>/" >> \$TMPSED
+@@ -3191,7 +3191,7 @@
+ case \$DST in
+ /*/include/*)
+ 	END=\`basename \$DST\`
+-	for i in \`cat \$REF/../*/headers |fgrep -v "#"\`
++	for i in \`cat \$REF/../*/headers |grep -v "#"\`
+ 	do
+ 		NAME=\`basename \$i\`
+ 		if test "\$NAME" = "curses.h"
+@@ -3521,7 +3521,7 @@
+ all :
+ 	@ echo '.$cf_option'
+ CF_EOF
+-		cf_result=`${MAKE:-make} -k -f cf_makeflags.tmp 2>/dev/null | fgrep -v "ing directory" | sed -e 's,[[ 	]]*$,,'`
++		cf_result=`${MAKE:-make} -k -f cf_makeflags.tmp 2>/dev/null | grep -v "ing directory" | sed -e 's,[[ 	]]*$,,'`
+ 		case "$cf_result" in
+ 		.*k)
+ 			cf_result=`${MAKE:-make} -k -f cf_makeflags.tmp CC=cc 2>/dev/null`
 --- ORIGINAL,configure	2011-03-31 16:35:51.000000000 -0700
-+++ configure	2014-07-16 18:31:30.000000000 -0700
++++ configure	2014-07-16 19:19:53.000000000 -0700
 @@ -3904,7 +3904,7 @@
  all :
  	@ echo '.$cf_option'
@@ -27,3 +56,14 @@
  	do
  		NAME=\`basename \$i\`
  		if test "\$NAME" = "curses.h"
+--- ORIGINAL,dist.mk	2011-04-04 15:42:20.000000000 -0700
++++ dist.mk	2014-07-16 19:16:25.000000000 -0700
+@@ -156,7 +156,7 @@
+ MANIFEST:
+ 	-rm -f $@
+ 	touch $@
+-	find . -type f -print |misc/csort | fgrep -v .lsm |fgrep -v .spec >$@
++	find . -type f -print |misc/csort | grep -v .lsm |grep -v .spec >$@
+ 
+ TAGS:
+ 	etags */*.[ch]
