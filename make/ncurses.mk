@@ -25,7 +25,7 @@ $(EXTRACT_ARTIFACT): $(TARGET_TARBALL_PATH)
 	tar zxf $< -C $(BUILD_PATH)
 
 $(CONFIGURE_ARTIFACT): $(EXTRACT_ARTIFACT)
-	cd $(TARGET_BUILD_PATH); ./configure --prefix=$(INSTALL_PATH) --enable-static
+	cd $(TARGET_BUILD_PATH); ./configure --prefix=$(INSTALL_PATH) --enable-static --with-termlib
 
 $(BUILD_ARTIFACT): $(CONFIGURE_ARTIFACT)
 	cd $(TARGET_BUILD_PATH); make
