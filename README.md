@@ -25,6 +25,7 @@ CentOS:
       gcc \
       gcc-c++ \
       glibc-static \
+      patch \
 	  ;
 
 ## Build instructions
