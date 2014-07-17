@@ -35,6 +35,8 @@ CentOS:
     git checkout 1.9a
     make
 
+When this completes, tmux will reside in "install/bin/tmux".
+
 ## Caveats
 
   - On CentOS 5.9, compiling ncurses currently fails with this error:
