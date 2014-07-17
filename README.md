@@ -19,9 +19,13 @@ I tested this on CentOS 5 and 6.
 
 ## Prerequisites
 
-For CentOS:
+CentOS:
 
-  - The "gcc" and "gcc-c++" packages
+    sudo yum install -y \
+      gcc \
+      gcc-c++ \
+      glibc-static \
+	  ;
 
 ## Build instructions
 
