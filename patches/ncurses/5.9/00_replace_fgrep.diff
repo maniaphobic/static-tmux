@@ -1,0 +1,29 @@
+--- ORIGINAL,configure	2011-03-31 16:35:51.000000000 -0700
++++ configure	2014-07-16 18:31:30.000000000 -0700
+@@ -3904,7 +3904,7 @@
+ all :
+ 	@ echo '.$cf_option'
+ CF_EOF
+-		cf_result=`${MAKE:-make} -k -f cf_makeflags.tmp 2>/dev/null | fgrep -v "ing directory" | sed -e 's,[ 	]*$,,'`
++		cf_result=`${MAKE:-make} -k -f cf_makeflags.tmp 2>/dev/null | grep -v "ing directory" | sed -e 's,[ 	]*$,,'`
+ 		case "$cf_result" in
+ 		.*k)
+ 			cf_result=`${MAKE:-make} -k -f cf_makeflags.tmp CC=cc 2>/dev/null`
+@@ -20900,7 +20900,7 @@
+ case \$DST in
+ /*/include/*)
+ 	END=\`basename \$DST\`
+-	for i in \`cat \$REF/../*/headers |fgrep -v "#"\`
++	for i in \`cat \$REF/../*/headers |grep -v "#"\`
+ 	do
+ 		NAME=\`basename \$i\`
+ 		echo "s/<\$NAME>/<\$END\/\$NAME>/" >> \$TMPSED
+@@ -20917,7 +20917,7 @@
+ case \$DST in
+ /*/include/*)
+ 	END=\`basename \$DST\`
+-	for i in \`cat \$REF/../*/headers |fgrep -v "#"\`
++	for i in \`cat \$REF/../*/headers |grep -v "#"\`
+ 	do
+ 		NAME=\`basename \$i\`
+ 		if test "\$NAME" = "curses.h"
